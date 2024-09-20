@@ -18,7 +18,7 @@ body {
 }
 #mainlogo{
     width: 150px;
-    margin: 18px 0 100px 10px;
+    margin: 25px 0 100px 10px;
 }
 #audio-icon:hover {
     transform: scale(1.2); /* 이미지를 확대 */
@@ -30,10 +30,12 @@ body {
     transform: scale(1.4); 
     opacity: 0.5; 
 }
-
+#start_p {
+    font-size: 15px;
+}
 #quiz_p {
-    text-align: center;
     margin: -32px -30px 30px 0;
+    font-size: 17px;
 }
 p {
     text-align: center;
@@ -45,8 +47,9 @@ p {
 .question img:hover {
     opacity: 0.3;
 }
-button {
-    background-color: #f0f0f0;
+.choice {
+    font-size: 16px;
+    /* background-color: #f0f0f0; */
     border-radius: 5px;
     border: 0.5px solid rgb(131, 131, 131);
     margin: 10px 25px 20px 25px ;
@@ -55,24 +58,28 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-button:hover {
+.choice:hover {
     background-color: #cacaca;
 }
-button:active {
+.choice:active, #start_button:active {
     background-color: #647eda;
 }
+
 #start_button {
+    border-radius: 5px;
+    border: 0.5px solid rgb(131, 131, 131);
+    margin: 10px 25px 20px 25px ;
     width: 100px;
     height: 40px;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'monospace';
     background-color: #acb5d4;
     color: #fff;
     margin: 8px 100px 15px;
 }
 u {
-    color: #647eda;
+    color: #da6464;
 }
 #correct-indicator {
     position: fixed; /* 뷰포트에 고정 */

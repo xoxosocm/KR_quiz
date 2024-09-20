@@ -7,7 +7,8 @@ function startpage() {
     quizContainer.appendChild(startMessage1);
 
     let startMessage2 = document.createElement("p");
-    startMessage2.textContent = "簡単なクイズで、自分の韓国語力を　　確認することができます。下のSTART　ボタンを押すとクイズが始まります。";
+    startMessage2.innerHTML = "簡単なクイズで、自分の韓国語力を<br>確認することができます！<br>ボタンを押すと、クイズが始まります。";
+    startMessage2.id = "start_p"
     quizContainer.appendChild(startMessage2);
 
     // 시작 버튼 생성
@@ -153,13 +154,24 @@ function checkAnswer(selectedIndex) {
         const quizContainer = document.getElementById("quiz-container");
         const totalQuestions = quizData.length;
         const correctAnswers = score;
-
+    
+        // h3 태그는 즉시 표시
         let resultMessage = `<h3>あなたの韓国語力は…</h3>`;
+        
+        // p 태그는 처음에 투명하게 설정 (opacity: 0)
         if (correctAnswers === totalQuestions) {
-            resultMessage += `<p>100点です！素晴らしい！</p>`;
+            resultMessage += `<p id="result-message" style="opacity: 0;">100点です！素晴らしい！</p>`;
         } else {
-            resultMessage += `<p>もっと頑張りましょう。</p>`;
+            resultMessage += `<p id="result-message" style="opacity: 0;">もっと頑張りましょう。</p>`;
         }
-        quizContainer.innerHTML = resultMessage;
+        
+        quizContainer.innerHTML = resultMessage; // h3 태그와 p 태그 추가
+    
+        // 일정 시간(예: 2초) 후에 p 태그의 opacity를 1로 변경하여 점차 보이게 함
+        setTimeout(() => {
+            const resultMessageElement = document.getElementById("result-message");
+            resultMessageElement.style.opacity = 1; // 투명도 100%로 변경
+        }, 3000); // 2초 후에 애니메이션 시작
     }
-loadQuiz();
+        
+    loadQuiz();
